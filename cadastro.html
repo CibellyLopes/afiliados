@@ -96,6 +96,15 @@
       background-color: #9eb230;
     }
 
+    /* Mensagem de sucesso */
+    #mensagemSucesso {
+      display: none;
+      margin-top: 20px;
+      text-align: center;
+      color: green;
+      font-weight: bold;
+    }
+
     /* Rodapé */
     footer {
       background-color: #073B56;
@@ -122,8 +131,7 @@
 <!-- Formulário -->
 <div class="form-container">
   <h2>Formulário de Cadastro</h2>
-  <form id="cadastroForm" action="https://formsubmit.co/comercial@capterplus.com.br" method="POST">
-    
+  <form id="cadastroForm">
     <div class="form-group">
       <label for="nome">Nome completo *</label>
       <input type="text" id="nome" name="nome" required>
@@ -165,55 +173,48 @@
       <textarea id="extra" name="extra" placeholder="Se quiser, fale mais sobre sua experiência, público ou objetivos."></textarea>
     </div>
 
-    <!-- Campos ocultos do FormSubmit -->
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_subject" value="Novo cadastro no Programa de Afiliados">
-
     <button type="submit" class="btn-submit">Enviar Cadastro</button>
   </form>
 
-  <!-- Mensagem de confirmação -->
-  <p id="mensagemSucesso" style="display:none; color: green; text-align:center; margin-top:15px;">
-    ✅ Formulário enviado com sucesso! Entraremos em contato em breve.
-  </p>
+  <p id="mensagemSucesso">✅ Formulário enviado com sucesso! Entraremos em contato em breve.</p>
 </div>
-
-<!-- JavaScript -->
-<script>
-  const form = document.getElementById('cadastroForm');
-  const mensagem = document.getElementById('mensagemSucesso');
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault(); // impede o comportamento padrão do envio
-
-    // Cria um envio via fetch para o FormSubmit
-    const formData = new FormData(form);
-
-    fetch(form.action, {
-      method: 'POST',
-      body: formData,
-      headers: { 'Accept': 'application/json' }
-    })
-    .then(response => {
-      if (response.ok) {
-        mensagem.style.display = 'block'; // mostra mensagem
-        form.reset(); // limpa campos
-      } else {
-        alert('Houve um problema ao enviar o formulário.');
-      }
-    })
-    .catch(error => {
-      alert('Houve um erro no envio do formulário.');
-      console.error(error);
-    });
-  });
-</script>
-
 
 <!-- Rodapé -->
 <footer>
   <p>&copy; 2025 Capterplus - Programa de Afiliados. Todos os direitos reservados.</p>
 </footer>
+
+<!-- JavaScript -->
+<script>
+const form = document.getElementById('cadastroForm');
+const mensagem = document.getElementById('mensagemSucesso');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault(); // evita envio normal
+
+  const formData = new FormData(form);
+
+  fetch("https://formsubmit.co/ajax/comercial@capterplus.com.br", {
+    method: "POST",
+    body: formData,
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+  .then(response => {
+    if(response.ok) {
+      mensagem.style.display = 'block';
+      form.reset();
+    } else {
+      alert("Ocorreu um erro ao enviar o formulário.");
+    }
+  })
+  .catch(error => {
+    alert("Ocorreu um erro ao enviar o formulário.");
+    console.error(error);
+  });
+});
+</script>
 
 </body>
 </html>
