@@ -16,240 +16,307 @@
   <meta name="msapplication-TileColor" content="#073B56">
   <meta name="msapplication-TileImage" content="mstile-150x150.png">
   <meta name="theme-color" content="#073B56">
-  <meta charset="UTF-8">
-<title>Programa de Afiliados Capterplus</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #FFFFFF;
-  }
 
-  /* Cabeçalho */
-  header {
-    background-color: #FFFFFF;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 50px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  }
-  header .logo {
-    font-weight: bold;
-    font-size: 18px;
-    color: #073B56;
-    display: flex;
-    align-items: center;
-  }
-  header .logo img {
-    height: 40px;
-    margin-right: 10px;
-  }
-  header .cadastro-btn {
-    padding: 10px 20px;
-    font-size: 14px;
-    background-color: #B7CB3D;
-    color: #073B56;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  header .cadastro-btn:hover {
-    background-color: #9eb230;
-  }
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #FFFFFF;
+    }
 
-  /* Banner inicial */
-  .banner-inicial {
-    text-align: center;
-    margin: 20px 0;
-  }
-  .banner-inicial img {
-    max-width: 1200px;
-    width: 100%;
-    height: auto;
-    display: inline-block;
-    border-radius: 10px;
-  }
-  .banner-inicial .mobile { display: none; }
-  @media (max-width: 768px) {
-    .banner-inicial .desktop { display: none; }
-    .banner-inicial .mobile { display: block; }
-  }
+    /* Cabeçalho */
+    header {
+      background-color: #FFFFFF;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    header .logo {
+      font-weight: bold;
+      font-size: 18px;
+      color: #073B56;
+      display: flex;
+      align-items: center;
+    }
+    header .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    header .cadastro-btn {
+      padding: 10px 20px;
+      font-size: 14px;
+      background-color: #B7CB3D;
+      color: #073B56;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    header .cadastro-btn:hover {
+      background-color: #9eb230;
+    }
+    @media (max-width: 768px) {
+      header {
+        padding: 10px 20px;
+        flex-direction: column;
+        text-align: center;
+      }
+      header .logo {
+        margin-bottom: 10px;
+      }
+    }
 
-  /* Texto centralizado */
-  .info {
-    background-color: #FFFFFF;
-    text-align: center;
-    padding: 50px 20px;
-  }
-  .info h2 {
-    font-size: 28px;
-    color: #073B56;
-    margin-bottom: 20px;
-  }
-  .info p {
-    font-size: 18px;
-    color: #073B56;
-    max-width: 800px;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
+    /* Banner inicial */
+    .banner-inicial {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .banner-inicial img {
+      max-width: 1200px;
+      width: 100%;
+      height: auto;
+      display: inline-block;
+      border-radius: 10px;
+    }
+    .banner-inicial .mobile { display: none; }
+    @media (max-width: 768px) {
+      .banner-inicial .desktop { display: none; }
+      .banner-inicial .mobile { display: block; }
+    }
 
-  /* Como funciona */
-  .como-funciona {
-    background-color: #FFFFFF;
-    text-align: center;
-    padding: 50px 20px;
-  }
-  .como-funciona h2 {
-    font-size: 28px;
-    color: #073B56;
-    margin-bottom: 40px;
-  }
-  .passos {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-  }
-  .passo {
-    flex: 1 1 250px;
-    max-width: 300px;
-    text-align: center;
-  }
-  .passo img {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 15px;
-  }
-  .passo h3 {
-    font-size: 20px;
-    color: #073B56;
-    margin-bottom: 15px;
-  }
-  .passo p {
-    font-size: 16px;
-    color: #073B56;
-    line-height: 1.6;
-  }
-  .icone-mobile { display: none; }
-  @media (max-width: 768px) {
-    .passo img { width: 60px; height: 60px; }
-    .passo h3 { font-size: 18px; }
-    .passo p { font-size: 15px; }
-    .icone-desktop { display: none; }
-    .icone-mobile { display: block; }
-  }
+    /* Texto centralizado */
+    .info {
+      background-color: #FFFFFF;
+      text-align: center;
+      padding: 50px 20px;
+    }
+    .info h2 {
+      font-size: 28px;
+      color: #073B56;
+      margin-bottom: 20px;
+    }
+    .info p {
+      font-size: 18px;
+      color: #073B56;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    @media (max-width: 768px) {
+      .info h2 { font-size: 22px; }
+      .info p { font-size: 16px; }
+      .info { padding: 30px 15px; }
+    }
 
-  /* Carrossel */
-  .carrossel {
-    position: relative;
-    max-width: 1200px;
-    margin: 40px auto;
-    overflow: hidden;
-    border-radius: 10px;
-  }
-  .slides {
-    display: flex;
-    transition: transform 8s ease-in-out;
-  }
-  .slide {
-    min-width: 100%;
-    display: none;
-    text-align: center;
-  }
-  .slide img {
-    width: 100%;
-    height: auto;
-    display: none;
-  }
-  @media (min-width: 769px) {
-    .slide .desktop { display: block; }
-  }
-  @media (max-width: 768px) {
-    .slide .mobile { display: block; }
-  }
-  .prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0,0,0,0.5);
-    color: white;
-    font-size: 24px;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-    z-index: 10;
-  }
-  .prev { left: 10px; }
-  .next { right: 10px; }
+    /* Como funciona */
+    .como-funciona {
+      background-color: #FFFFFF;
+      text-align: center;
+      padding: 50px 20px;
+    }
+    .como-funciona h2 {
+      font-size: 28px;
+      color: #073B56;
+      margin-bottom: 40px;
+    }
+    .passos {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .passo {
+      flex: 1 1 250px;
+      max-width: 300px;
+      text-align: center;
+    }
+    .passo img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 15px;
+    }
+    .passo h3 {
+      font-size: 20px;
+      color: #073B56;
+      margin-bottom: 15px;
+    }
+    .passo p {
+      font-size: 16px;
+      color: #073B56;
+      line-height: 1.6;
+    }
+    .icone-mobile { display: none; }
+    @media (max-width: 768px) {
+      .passo img { width: 60px; height: 60px; }
+      .passo h3 { font-size: 18px; }
+      .passo p { font-size: 15px; }
+      .icone-desktop { display: none; }
+      .icone-mobile { display: block; }
+    }
 
-  /* Indicadores */
-  .indicators {
-    text-align: center;
-    margin-top: 15px;
-  }
-  .indicator {
-    height: 12px;
-    width: 12px;
-    margin: 0 5px;
-    background-color: #ccc;
-    border-radius: 50%;
-    display: inline-block;
-    cursor: pointer;
-  }
-  .indicator.active {
-    background-color: #073B56;
-  }
+    /* Carrossel */
+    .carrossel {
+      position: relative;
+      max-width: 1200px;
+      margin: 40px auto;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    .slides {
+      display: flex;
+      transition: transform 8s ease-in-out;
+    }
+    .slide {
+      min-width: 100%;
+      display: none;
+      text-align: center;
+    }
+    .slide img {
+      width: 100%;
+      height: auto;
+    }
+    .desktop { display: none; }
+    .mobile { display: none; }
+    @media (min-width: 769px) {
+      .desktop { display: block; }
+    }
+    @media (max-width: 768px) {
+      .mobile { display: block; }
+    }
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.5);
+      color: white;
+      font-size: 24px;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      z-index: 10;
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
 
-  /* FAQ */
-  .faq {
-    background-color: #FFFFFF;
-    padding: 50px 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  .faq h2 {
-    font-size: 28px;
-    color: #073B56;
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  .faq-item {
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 15px;
-  }
-  .faq-question {
-    font-size: 18px;
-    color: #073B56;
-    padding: 15px;
-    cursor: pointer;
-    position: relative;
-  }
-  .faq-question::after {
-    content: "+";
-    position: absolute;
-    right: 20px;
-    font-size: 22px;
-    color: #073B56;
-  }
-  .faq-question.active::after {
-    content: "-";
-  }
-  .faq-answer {
-    display: none;
-    padding: 0 15px 15px;
-    font-size: 16px;
-    color: #073B56;
-    line-height: 1.6;
-  }
-  .faq-answer ul {
-    list-style: disc;
-    margin-left: 20px;
-  }
-</style>
+    /* Indicadores */
+    .indicators {
+      text-align: center;
+      margin-top: 15px;
+    }
+    .indicator {
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background-color: #ccc;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+    }
+    .indicator.active {
+      background-color: #073B56;
+    }
+
+    /* FAQ */
+    .faq {
+      background-color: #FFFFFF;
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .faq h2 {
+      font-size: 28px;
+      color: #073B56;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .faq-item {
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 15px;
+    }
+    .faq-question {
+      font-size: 18px;
+      color: #073B56;
+      padding: 15px;
+      cursor: pointer;
+      position: relative;
+    }
+    .faq-question::after {
+      content: "+";
+      position: absolute;
+      right: 20px;
+      font-size: 22px;
+      color: #073B56;
+    }
+    .faq-question.active::after {
+      content: "-";
+    }
+    .faq-answer {
+      display: none;
+      padding: 0 15px 15px;
+      font-size: 16px;
+      color: #073B56;
+      line-height: 1.6;
+    }
+    .faq-answer ul {
+      list-style: disc;
+      margin-left: 20px;
+    }
+
+    /* CTA Final */
+    .cta-final {
+      background-color: #073B56;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .cta-final h2 {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+    .cta-final p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+    .cta-final .cadastro-btn {
+      font-size: 18px;
+      padding: 12px 30px;
+      background-color: #B7CB3D;
+      color: #073B56;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .cta-final .cadastro-btn:hover {
+      background-color: #9eb230;
+    }
+    @media (max-width: 768px) {
+      .cta-final h2 { font-size: 22px; }
+      .cta-final p { font-size: 16px; }
+      .cta-final { padding: 40px 15px; }
+    }
+
+    /* Rodapé */
+    footer {
+      background-color: #f1f1f1;
+      padding: 20px;
+      text-align: center;
+      border-top: 1px solid #ddd;
+    }
+    footer img {
+      height: 35px;
+      display: block;
+      margin: 0 auto 10px;
+    }
+    footer p {
+      color: #073B56;
+      font-size: 14px;
+      margin: 0;
+    }
+  </style>
 </head>
 <body>
 
@@ -381,6 +448,21 @@
   </div>
 </section>
 
+<!-- CTA Final -->
+<section class="cta-final">
+  <h2>Pronto para começar?</h2>
+  <p>Junte-se ao Programa de Afiliados Capterplus e transforme sua influência em ganhos reais.</p>
+  <a href="cadastro.html" class="cadastro-btn">Cadastre-se</a>
+</section>
+
+<!-- Rodapé -->
+<footer>
+  <div class="footer-content">
+    <img src="capterplus-logo.svg" alt="Logo Capterplus">
+    <p>&copy; 2025 Capterplus - Todos os direitos reservados.</p>
+  </div>
+</footer>
+
 <!-- JavaScript -->
 <script>
 /* ===== Carrossel ===== */
@@ -401,102 +483,4 @@ slides.forEach((_, i) => {
 const indicators = document.querySelectorAll('.indicator');
 
 function showSlide(i) {
-  slides.forEach(slide => slide.style.display = 'none');
-  slides[i].style.display = 'block';
-  indicators.forEach(dot => dot.classList.remove('active'));
-  indicators[i].classList.add('active');
-}
-showSlide(index);
-
-function nextSlide() {
-  index = (index + 1) % slides.length;
-  showSlide(index);
-}
-function prevSlide() {
-  index = (index - 1 + slides.length) % slides.length;
-  showSlide(index);
-}
-document.querySelector('.next').addEventListener('click', nextSlide);
-document.querySelector('.prev').addEventListener('click', prevSlide);
-setInterval(nextSlide, 5000);
-
-/* ===== FAQ acordeão ===== */
-const questions = document.querySelectorAll('.faq-question');
-questions.forEach(q => {
-  q.addEventListener('click', () => {
-    q.classList.toggle('active');
-    const answer = q.nextElementSibling;
-    if (answer.style.display === "block") {
-      answer.style.display = "none";
-    } else {
-      answer.style.display = "block";
-    }
-  });
-});
-</script>
-
-</body>
-</html>
-<!-- CTA Final -->
-<section class="cta-final">
-  <h2>Pronto para começar?</h2>
-  <p>Junte-se ao Programa de Afiliados Capterplus e transforme sua influência em ganhos reais.</p>
-  <a href="cadastro.html" class="cadastro-btn">Cadastre-se</a>
-</section>
-
-<!-- Rodapé -->
-<footer>
-  <div class="footer-content">
-    <img src="capterplus-logo.svg" alt="Logo Capterplus">
-    <p>&copy; 2025 Capterplus - Todos os direitos reservados.</p>
-  </div>
-</footer>
-
-<style>
-  /* CTA Final */
-  .cta-final {
-    background-color: #073B56;
-    color: #FFFFFF;
-    text-align: center;
-    padding: 60px 20px;
-  }
-  .cta-final h2 {
-    font-size: 30px;
-    margin-bottom: 15px;
-  }
-  .cta-final p {
-    font-size: 18px;
-    margin-bottom: 25px;
-  }
-  .cta-final .cadastro-btn {
-    font-size: 18px;
-    padding: 12px 30px;
-    background-color: #B7CB3D;
-    color: #073B56;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  .cta-final .cadastro-btn:hover {
-    background-color: #9eb230;
-  }
-
-  /* Rodapé */
-  footer {
-    background-color: #f1f1f1;
-    padding: 20px;
-    text-align: center;
-    border-top: 1px solid #ddd;
-  }
-  footer img {
-    height: 35px;
-    display: block;
-    margin: 0 auto 10px;
-  }
-  footer p {
-    color: #073B56;
-    font-size: 14px;
-    margin: 0;
-  }
-</style>
+  slides.forEach(slide => slide.style
