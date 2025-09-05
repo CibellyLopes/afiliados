@@ -16,8 +16,7 @@
   <meta name="msapplication-TileColor" content="#073B56">
   <meta name="msapplication-TileImage" content="mstile-150x150.png">
   <meta name="theme-color" content="#073B56">
-  <meta charset="UTF-8">
-<title>Programa de Afiliados Capterplus</title>
+
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -59,6 +58,19 @@
     background-color: #9eb230;
   }
 
+  @media (max-width: 768px) {
+    header {
+      padding: 10px 20px;
+    }
+    header .logo span {
+      font-size: 14px;
+    }
+    header .cadastro-btn {
+      padding: 8px 16px;
+      font-size: 13px;
+    }
+  }
+
   /* Banner inicial */
   .banner-inicial {
     text-align: center;
@@ -94,6 +106,10 @@
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.6;
+  }
+  @media (max-width: 768px) {
+    .info h2 { font-size: 22px; }
+    .info p { font-size: 16px; line-height: 1.5; }
   }
 
   /* Como funciona */
@@ -134,7 +150,12 @@
     line-height: 1.6;
   }
   .icone-mobile { display: none; }
+
   @media (max-width: 768px) {
+    .passos {
+      flex-direction: column;
+      align-items: center;
+    }
     .passo img { width: 60px; height: 60px; }
     .passo h3 { font-size: 18px; }
     .passo p { font-size: 15px; }
@@ -158,6 +179,9 @@
     min-width: 100%;
     display: none;
     text-align: center;
+  }
+  .slide:first-child {
+    display: block; /* Garante a primeira visível antes do JS */
   }
   .slide img {
     width: 100%;
@@ -185,6 +209,13 @@
   }
   .prev { left: 10px; }
   .next { right: 10px; }
+
+  @media (max-width: 768px) {
+    .prev, .next {
+      font-size: 18px;
+      padding: 6px 10px;
+    }
+  }
 
   /* Indicadores */
   .indicators {
@@ -248,6 +279,53 @@
   .faq-answer ul {
     list-style: disc;
     margin-left: 20px;
+  }
+
+  /* CTA Final */
+  .cta-final {
+    background-color: #073B56;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 60px 20px;
+  }
+  .cta-final h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+  .cta-final p {
+    font-size: 18px;
+    margin-bottom: 25px;
+  }
+  .cta-final .cadastro-btn {
+    font-size: 18px;
+    padding: 12px 30px;
+    background-color: #B7CB3D;
+    color: #073B56;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .cta-final .cadastro-btn:hover {
+    background-color: #9eb230;
+  }
+
+  /* Rodapé */
+  footer {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+  }
+  footer img {
+    height: 35px;
+    display: block;
+    margin: 0 auto 10px;
+  }
+  footer p {
+    color: #073B56;
+    font-size: 14px;
+    margin: 0;
   }
 </style>
 </head>
@@ -381,6 +459,21 @@
   </div>
 </section>
 
+<!-- CTA Final -->
+<section class="cta-final">
+  <h2>Pronto para começar?</h2>
+  <p>Junte-se ao Programa de Afiliados Capterplus e transforme sua influência em ganhos reais.</p>
+  <a href="cadastro.html" class="cadastro-btn">Cadastre-se</a>
+</section>
+
+<!-- Rodapé -->
+<footer>
+  <div class="footer-content">
+    <img src="capterplus-logo.svg" alt="Logo Capterplus">
+    <p>&copy; 2025 Capterplus - Todos os direitos reservados.</p>
+  </div>
+</footer>
+
 <!-- JavaScript -->
 <script>
 /* ===== Carrossel ===== */
@@ -398,105 +491,40 @@ slides.forEach((_, i) => {
   });
   indicatorsContainer.appendChild(dot);
 });
+
 const indicators = document.querySelectorAll('.indicator');
 
-function showSlide(i) {
-  slides.forEach(slide => slide.style.display = 'none');
-  slides[i].style.display = 'block';
-  indicators.forEach(dot => dot.classList.remove('active'));
-  indicators[i].classList.add('active');
+function showSlide(n) {
+  slides.forEach((slide, i) => {
+    slide.style.display = (i === n) ? 'block' : 'none';
+    indicators[i].classList.toggle('active', i === n);
+  });
 }
-showSlide(index);
 
 function nextSlide() {
   index = (index + 1) % slides.length;
   showSlide(index);
 }
+
 function prevSlide() {
   index = (index - 1 + slides.length) % slides.length;
   showSlide(index);
 }
+
 document.querySelector('.next').addEventListener('click', nextSlide);
 document.querySelector('.prev').addEventListener('click', prevSlide);
-setInterval(nextSlide, 5000);
 
-/* ===== FAQ acordeão ===== */
-const questions = document.querySelectorAll('.faq-question');
-questions.forEach(q => {
-  q.addEventListener('click', () => {
-    q.classList.toggle('active');
-    const answer = q.nextElementSibling;
-    if (answer.style.display === "block") {
-      answer.style.display = "none";
-    } else {
-      answer.style.display = "block";
-    }
+setInterval(nextSlide, 6000);
+
+/* ===== FAQ ===== */
+document.querySelectorAll('.faq-question').forEach(item => {
+  item.addEventListener('click', () => {
+    item.classList.toggle('active');
+    const answer = item.nextElementSibling;
+    answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
   });
 });
 </script>
 
 </body>
 </html>
-<!-- CTA Final -->
-<section class="cta-final">
-  <h2>Pronto para começar?</h2>
-  <p>Junte-se ao Programa de Afiliados Capterplus e transforme sua influência em ganhos reais.</p>
-  <a href="cadastro.html" class="cadastro-btn">Cadastre-se</a>
-</section>
-
-<!-- Rodapé -->
-<footer>
-  <div class="footer-content">
-    <img src="capterplus-logo.svg" alt="Logo Capterplus">
-    <p>&copy; 2025 Capterplus - Todos os direitos reservados.</p>
-  </div>
-</footer>
-
-<style>
-  /* CTA Final */
-  .cta-final {
-    background-color: #073B56;
-    color: #FFFFFF;
-    text-align: center;
-    padding: 60px 20px;
-  }
-  .cta-final h2 {
-    font-size: 30px;
-    margin-bottom: 15px;
-  }
-  .cta-final p {
-    font-size: 18px;
-    margin-bottom: 25px;
-  }
-  .cta-final .cadastro-btn {
-    font-size: 18px;
-    padding: 12px 30px;
-    background-color: #B7CB3D;
-    color: #073B56;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  .cta-final .cadastro-btn:hover {
-    background-color: #9eb230;
-  }
-
-  /* Rodapé */
-  footer {
-    background-color: #f1f1f1;
-    padding: 20px;
-    text-align: center;
-    border-top: 1px solid #ddd;
-  }
-  footer img {
-    height: 35px;
-    display: block;
-    margin: 0 auto 10px;
-  }
-  footer p {
-    color: #073B56;
-    font-size: 14px;
-    margin: 0;
-  }
-</style>
